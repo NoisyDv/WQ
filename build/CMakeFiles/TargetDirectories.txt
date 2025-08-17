@@ -1,0 +1,3 @@
+/home/Tonnam/WQ/build/CMakeFiles/WQApp.dir
+/home/Tonnam/WQ/build/CMakeFiles/edit_cache.dir
+/home/Tonnam/WQ/build/CMakeFiles/rebuild_cache.dir

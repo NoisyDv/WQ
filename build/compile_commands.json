@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/Tonnam/WQ/build",
+  "command": "/usr/bin/c++  -I/home/Tonnam/WQ/include -std=gnu++17 -o CMakeFiles/WQApp.dir/src/main.cpp.o -c /home/Tonnam/WQ/src/main.cpp",
+  "file": "/home/Tonnam/WQ/src/main.cpp",
+  "output": "CMakeFiles/WQApp.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/Tonnam/WQ/build",
+  "command": "/usr/bin/c++  -I/home/Tonnam/WQ/include -std=gnu++17 -o CMakeFiles/WQApp.dir/src/work_list.cpp.o -c /home/Tonnam/WQ/src/work_list.cpp",
+  "file": "/home/Tonnam/WQ/src/work_list.cpp",
+  "output": "CMakeFiles/WQApp.dir/src/work_list.cpp.o"
+}
+]
