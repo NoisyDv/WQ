@@ -1,3 +1,4 @@
+#include "history.h"
 #include "work_list.h"
 #include <iostream>
 #include <limits>
@@ -7,12 +8,14 @@ int main(int argc, char *argv[]) {
   std::string command;
   std::string flags;
   WorkList list = WorkList();
+  History his = History();
+
   if (argc > 2) {
-    flags = argv[2];
+    flags = argv[2]; // for difine second argument
   }
-  if (argc > 1) {
+  if (argc > 1) { // for define first argument
     command = argv[1];
-    if (command == "-help" || command == "-h") {
+    if (command == "-help" || command == "-h") { // for show manual
 
       std::cout << "\t\t\tuse \033[1;31madd\033[0m to add work "
                    "(topic,date,detail) optino[\033[1;31m-i\033[0m to insert "
@@ -22,7 +25,8 @@ int main(int argc, char *argv[]) {
                    "for remove all work all]\n"
                 << "\t";
 
-    } else if (command == "add") {
+    } else if (command == "add") { // Add mode defualt push back
+      // Add (insert mode)
       if (flags == "-i") {
         int index;
         while (true) {
@@ -37,12 +41,15 @@ int main(int argc, char *argv[]) {
         }
         list.insert_work(index);
         list.show_list();
+
         return 0;
       }
+
       list.add_work();
       list.show_list();
 
-    } else if (command == "del") {
+    } else if (command == "del") { // delete mode (by index)
+      // delete all work in data
       if (flags == "-a") {
         char sure;
         std::cout << "Do you want to remove all work (y/n):";
@@ -71,7 +78,7 @@ int main(int argc, char *argv[]) {
       list.remove_work(del);
       list.show_list();
     } else {
-      std::cout << "you can use -help\n";
+      std::cout << "you can use -help or -h for show manual\n";
     }
   }
 }

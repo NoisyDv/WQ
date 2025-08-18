@@ -21,6 +21,7 @@
   CMakeFiles/WQApp.dir/src/work_list.cpp.o
 
 CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
+  /home/Tonnam/WQ/include/history.h \
   /home/Tonnam/WQ/include/work_list.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -103,7 +104,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/c++/15.1.1/bits/basic_string.tcc \
   /usr/include/c++/15.1.1/bits/char_traits.h \
   /usr/include/c++/15.1.1/bits/charconv.h \
-  /usr/include/c++/15.1.1/bits/codecvt.h \
   /usr/include/c++/15.1.1/bits/concept_check.h \
   /usr/include/c++/15.1.1/bits/cpp_type_traits.h \
   /usr/include/c++/15.1.1/bits/cxxabi_forced.h \
@@ -111,7 +111,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/c++/15.1.1/bits/exception.h \
   /usr/include/c++/15.1.1/bits/exception_defines.h \
   /usr/include/c++/15.1.1/bits/exception_ptr.h \
-  /usr/include/c++/15.1.1/bits/fstream.tcc \
   /usr/include/c++/15.1.1/bits/functexcept.h \
   /usr/include/c++/15.1.1/bits/functional_hash.h \
   /usr/include/c++/15.1.1/bits/hash_bytes.h \
@@ -120,11 +119,8 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/c++/15.1.1/bits/istream.tcc \
   /usr/include/c++/15.1.1/bits/locale_classes.h \
   /usr/include/c++/15.1.1/bits/locale_classes.tcc \
-  /usr/include/c++/15.1.1/bits/locale_conv.h \
   /usr/include/c++/15.1.1/bits/locale_facets.h \
   /usr/include/c++/15.1.1/bits/locale_facets.tcc \
-  /usr/include/c++/15.1.1/bits/locale_facets_nonio.h \
-  /usr/include/c++/15.1.1/bits/locale_facets_nonio.tcc \
   /usr/include/c++/15.1.1/bits/localefwd.h \
   /usr/include/c++/15.1.1/bits/memory_resource.h \
   /usr/include/c++/15.1.1/bits/memoryfwd.h \
@@ -137,11 +133,9 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/c++/15.1.1/bits/postypes.h \
   /usr/include/c++/15.1.1/bits/predefined_ops.h \
   /usr/include/c++/15.1.1/bits/ptr_traits.h \
-  /usr/include/c++/15.1.1/bits/quoted_string.h \
   /usr/include/c++/15.1.1/bits/range_access.h \
   /usr/include/c++/15.1.1/bits/refwrap.h \
   /usr/include/c++/15.1.1/bits/requires_hosted.h \
-  /usr/include/c++/15.1.1/bits/sstream.tcc \
   /usr/include/c++/15.1.1/bits/std_abs.h \
   /usr/include/c++/15.1.1/bits/stl_algobase.h \
   /usr/include/c++/15.1.1/bits/stl_bvector.h \
@@ -169,7 +163,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/c++/15.1.1/cstddef \
   /usr/include/c++/15.1.1/cstdio \
   /usr/include/c++/15.1.1/cstdlib \
-  /usr/include/c++/15.1.1/ctime \
   /usr/include/c++/15.1.1/cwchar \
   /usr/include/c++/15.1.1/cwctype \
   /usr/include/c++/15.1.1/debug/assertions.h \
@@ -180,19 +173,15 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/c++/15.1.1/ext/numeric_traits.h \
   /usr/include/c++/15.1.1/ext/string_conversions.h \
   /usr/include/c++/15.1.1/ext/type_traits.h \
-  /usr/include/c++/15.1.1/fstream \
   /usr/include/c++/15.1.1/initializer_list \
-  /usr/include/c++/15.1.1/iomanip \
   /usr/include/c++/15.1.1/ios \
   /usr/include/c++/15.1.1/iosfwd \
   /usr/include/c++/15.1.1/iostream \
   /usr/include/c++/15.1.1/istream \
   /usr/include/c++/15.1.1/limits \
-  /usr/include/c++/15.1.1/locale \
   /usr/include/c++/15.1.1/new \
   /usr/include/c++/15.1.1/ostream \
   /usr/include/c++/15.1.1/pstl/pstl_config.h \
-  /usr/include/c++/15.1.1/sstream \
   /usr/include/c++/15.1.1/stdexcept \
   /usr/include/c++/15.1.1/streambuf \
   /usr/include/c++/15.1.1/string \
@@ -203,10 +192,8 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/c++/15.1.1/typeinfo \
   /usr/include/c++/15.1.1/vector \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/atomic_word.h \
-  /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/basic_file.h \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++allocator.h \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++config.h \
-  /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++io.h \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++locale.h \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/ctype_base.h \
@@ -214,9 +201,7 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/error_constants.h \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/gthr-default.h \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/gthr.h \
-  /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/messages_members.h \
   /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/os_defines.h \
-  /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/time_members.h \
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
@@ -224,7 +209,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
-  /usr/include/libintl.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/posix_types.h \
   /usr/include/linux/sched/types.h \
@@ -484,7 +468,17 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdint.h:
 
+/usr/include/c++/15.1.1/sstream:
+
+/usr/include/c++/15.1.1/iomanip:
+
+/usr/include/c++/15.1.1/fstream:
+
 /usr/include/c++/15.1.1/cstdint:
+
+/usr/include/c++/15.1.1/bits/locale_facets_nonio.h:
+
+/usr/include/c++/15.1.1/bits/fstream.tcc:
 
 /home/Tonnam/WQ/src/work_list.cpp:
 
@@ -505,6 +499,10 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 /usr/include/sched.h:
 
 /usr/include/pthread.h:
+
+/usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/basic_file.h:
+
+/usr/include/locale.h:
 
 /usr/include/linux/types.h:
 
@@ -534,15 +532,17 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
 
-/usr/include/locale.h:
-
-/usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/basic_file.h:
-
 /usr/include/c++/15.1.1/typeinfo:
 
 /usr/include/bits/stdint-least.h:
 
 /usr/include/c++/15.1.1/type_traits:
+
+/usr/include/c++/15.1.1/bits/locale_facets_nonio.tcc:
+
+/usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++config.h:
+
+/usr/include/c++/15.1.1/tuple:
 
 /usr/include/bits/stdint-uintn.h:
 
@@ -552,13 +552,11 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/include/c++/15.1.1/streambuf:
 
-/usr/include/c++/15.1.1/sstream:
+/usr/include/c++/15.1.1/bits/locale_conv.h:
 
-/usr/include/c++/15.1.1/iomanip:
+/usr/include/c++/15.1.1/ios:
 
 /usr/include/c++/15.1.1/initializer_list:
-
-/usr/include/c++/15.1.1/fstream:
 
 /usr/include/c++/15.1.1/ext/string_conversions.h:
 
@@ -573,6 +571,10 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
 
 /usr/include/c++/15.1.1/cctype:
+
+/usr/include/c++/15.1.1/bits/quoted_string.h:
+
+/usr/include/c++/15.1.1/bits/vector.tcc:
 
 /usr/include/c++/15.1.1/bits/utility.h:
 
@@ -606,23 +608,13 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/include/c++/15.1.1/bits/range_access.h:
 
-/usr/include/c++/15.1.1/bits/vector.tcc:
-
-/usr/include/c++/15.1.1/bits/quoted_string.h:
-
 /usr/include/c++/15.1.1/bits/ptr_traits.h:
-
-/usr/include/c++/15.1.1/ostream:
 
 /usr/include/c++/15.1.1/ctime:
 
+/usr/include/c++/15.1.1/ostream:
+
 /usr/include/c++/15.1.1/bits/predefined_ops.h:
-
-/usr/include/c++/15.1.1/ext/type_traits.h:
-
-/usr/include/c++/15.1.1/bits/ostream.tcc:
-
-/usr/include/c++/15.1.1/bits/ostream.h:
 
 /usr/include/c++/15.1.1/cwctype:
 
@@ -656,8 +648,6 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/include/bits/pthreadtypes-arch.h:
 
-/usr/lib/libm.so:
-
 /usr/include/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/bits/long-double.h:
@@ -674,9 +664,9 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/include/bits/endianness.h:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdarg.h:
-
 /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++io.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdarg.h:
 
 /usr/include/c++/15.1.1/bits/stl_iterator.h:
 
@@ -702,47 +692,15 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o:
 
 /usr/include/bits/locale.h:
 
-/usr/include/wctype.h:
-
-/usr/include/c++/15.1.1/limits:
-
-/usr/include/bits/timex.h:
-
-/usr/include/bits/errno.h:
-
 /usr/include/c++/15.1.1/bits/streambuf.tcc:
 
 /usr/include/c++/15.1.1/bits/locale_facets.h:
 
 /usr/include/bits/types/clockid_t.h:
 
-/usr/include/c++/15.1.1/bits/nested_exception.h:
-
-/usr/include/c++/15.1.1/bits/codecvt.h:
-
 /usr/lib/libc.so.6:
 
 /usr/lib/crtn.o:
-
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/c++/15.1.1/bits/new_allocator.h:
-
-/usr/lib/libc_nonshared.a:
-
-/usr/include/c++/15.1.1/locale:
-
-/usr/include/c++/15.1.1/bits/exception_defines.h:
-
-/usr/include/bits/types.h:
-
-/usr/include/c++/15.1.1/bits/postypes.h:
-
-/usr/include/c++/15.1.1/bits/basic_string.tcc:
-
-CMakeFiles/WQApp.dir/src/main.cpp.o:
-
-/usr/include/c++/15.1.1/bits/functexcept.h:
 
 /usr/include/c++/15.1.1/bits/move.h:
 
@@ -753,6 +711,8 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 /usr/include/asm/types.h:
 
 /usr/include/bits/types/struct_FILE.h:
+
+/usr/include/c++/15.1.1/bits/ostream.h:
 
 /usr/lib/libstdc++.so:
 
@@ -776,9 +736,23 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 
 /usr/lib/crti.o:
 
-/usr/include/stdc-predef.h:
+/usr/include/c++/15.1.1/locale:
+
+/usr/include/c++/15.1.1/bits/exception_defines.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/c++/15.1.1/bits/postypes.h:
+
+/usr/include/c++/15.1.1/bits/basic_string.tcc:
+
+CMakeFiles/WQApp.dir/src/main.cpp.o:
+
+/usr/include/c++/15.1.1/bits/functexcept.h:
 
 /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/messages_members.h:
+
+/usr/include/stdc-predef.h:
 
 /usr/include/asm-generic/posix_types.h:
 
@@ -794,8 +768,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 
 /usr/lib/ld-linux-x86-64.so.2:
 
-/usr/include/c++/15.1.1/bits/fstream.tcc:
-
 /usr/lib/libm.so.6:
 
 /usr/lib/libmvec.so.1:
@@ -803,6 +775,12 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 /home/Tonnam/WQ/src/main.cpp:
 
 /usr/include/c++/15.1.1/bits/istream.tcc:
+
+/usr/include/bits/thread-shared-types.h:
+
+/home/Tonnam/WQ/include/history.h:
+
+/usr/include/bits/types/FILE.h:
 
 /usr/include/bits/libc-header-start.h:
 
@@ -813,6 +791,16 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 /usr/include/bits/time64.h:
 
 /usr/include/c++/15.1.1/bits/memoryfwd.h:
+
+/usr/lib/libm.so:
+
+/usr/include/wctype.h:
+
+/usr/include/c++/15.1.1/limits:
+
+/usr/include/bits/errno.h:
+
+/usr/include/bits/timex.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/crtbeginS.o:
 
@@ -830,6 +818,10 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 
 /usr/include/asm-generic/int-ll64.h:
 
+/usr/lib/libc_nonshared.a:
+
+/usr/include/c++/15.1.1/bits/new_allocator.h:
+
 /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/error_constants.h:
 
 /usr/include/asm/bitsperlong.h:
@@ -837,8 +829,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/asm-generic/types.h:
-
-/usr/include/bits/types/FILE.h:
 
 /usr/include/c++/15.1.1/new:
 
@@ -898,10 +888,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 
 /usr/include/bits/waitflags.h:
 
-/usr/include/c++/15.1.1/ios:
-
-/usr/include/c++/15.1.1/bits/locale_conv.h:
-
 /usr/include/c++/15.1.1/clocale:
 
 /usr/include/c++/15.1.1/cerrno:
@@ -909,8 +895,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 /usr/include/bits/types/struct_timespec.h:
 
 /usr/include/c++/15.1.1/bits/allocator.h:
-
-/usr/include/c++/15.1.1/bits/locale_facets_nonio.h:
 
 /usr/include/bits/types/struct_tm.h:
 
@@ -964,19 +948,21 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 
 /usr/include/c++/15.1.1/bits/cpp_type_traits.h:
 
+/usr/include/c++/15.1.1/ext/type_traits.h:
+
+/usr/include/c++/15.1.1/bits/ostream.tcc:
+
 /usr/include/c++/15.1.1/vector:
 
 /usr/include/c++/15.1.1/bits/cxxabi_init_exception.h:
 
+/usr/include/c++/15.1.1/bits/codecvt.h:
+
+/usr/include/c++/15.1.1/bits/nested_exception.h:
+
 /usr/include/c++/15.1.1/bits/exception.h:
 
 /usr/include/c++/15.1.1/bits/locale_facets.tcc:
-
-/usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++config.h:
-
-/usr/include/c++/15.1.1/tuple:
-
-/usr/include/c++/15.1.1/bits/locale_facets_nonio.tcc:
 
 /usr/include/bits/atomic_wide_counter.h:
 

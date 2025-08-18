@@ -1,10 +1,14 @@
 #include "work_list.h"
 #include <chrono>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
 #include <sstream>
 
+const std::string work_file = "Data.txt";
 // for save data to text file
-void WorkList::save_to_file() {
-  std::ofstream file(output_file);
+void save_to_file(std::vector<Work> work_list) {
+  std::ofstream file(work_file);
   if (!file) {
     std::cout << "can not open file";
     return;
@@ -15,8 +19,8 @@ void WorkList::save_to_file() {
 }
 
 // for load data from text file to array
-void WorkList::load_from_file() {
-  std::ifstream file(output_file);
+void load_from_file(std::vector<Work> work_list) {
+  std::ifstream file(work_file);
   if (!file) {
 
     std::cout << "can not open file";
@@ -49,12 +53,12 @@ void WorkList::add_work() {
   std::cout << "Enter detail: ";
   std::getline(std::cin, work.detail);
   work_list.push_back(work);
-  save_to_file();
+  save_to_file(work_list);
 }
 
 // for insert work by index
 void WorkList::insert_work(int index) {
-  load_from_file();
+  load_from_file(work_list);
   Work work;
 
   auto now = std::chrono::system_clock::now();
@@ -72,13 +76,13 @@ void WorkList::insert_work(int index) {
     work_list[i] = work_list[i - 1];
   }
   work_list[index] = work;
-  save_to_file();
+  save_to_file(work_list);
 }
 
 // for show list of all work
 void WorkList::show_list() {
 
-  load_from_file();
+  load_from_file(work_list);
 
   std::cout << "\t\t\t" << "\033[1;34m" << std::left << std::setw(10) << "Index"
             << std::setw(40) << "Topic" << std::setw(25) << "Date"
@@ -94,7 +98,7 @@ void WorkList::show_list() {
 
 // for remove work from list
 void WorkList ::remove_work(int del) {
-  load_from_file();
+  load_from_file(work_list);
   for (int i = 0; i < work_list.size(); i++) {
     if (i == del) {
       for (int j = i; j < work_list.size() - 1; j++) {
@@ -104,12 +108,12 @@ void WorkList ::remove_work(int del) {
       break;
     }
   }
-  save_to_file();
+  save_to_file(work_list);
 }
 
 // for remove all wore
 void WorkList::remove_all() {
-  load_from_file();
+  load_from_file(work_list);
   work_list.clear();
-  save_to_file();
+  save_to_file(work_list);
 }

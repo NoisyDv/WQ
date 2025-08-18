@@ -1,8 +1,5 @@
 #pragma once
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <sstream>
+#include <string>
 #include <vector>
 
 struct Work {
@@ -10,14 +7,15 @@ struct Work {
   std::string detail;
   std::string date;
 };
-const std::string output_file = "Data.txt";
+
+void save_to_file(std::vector<Work>);
+void load_from_file(std::vector<Work>);
+
 class WorkList {
-  std::vector<Work> work_list;
 
 public:
-  WorkList() { show_list(); }
-  void save_to_file();
-  void load_from_file();
+  std::vector<Work> work_list;
+  WorkList() {}
   void add_work();
   void show_list();
   void remove_work(int);
