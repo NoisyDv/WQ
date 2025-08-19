@@ -1,4 +1,3 @@
-#include "history.h"
 #include "work_list.h"
 #include <iostream>
 #include <limits>
