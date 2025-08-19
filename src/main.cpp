@@ -8,7 +8,6 @@ int main(int argc, char *argv[]) {
   std::string command;
   std::string flags;
   WorkList list = WorkList();
-  History his = History();
 
   if (argc > 2) {
     flags = argv[2]; // for difine second argument
@@ -17,13 +16,15 @@ int main(int argc, char *argv[]) {
     command = argv[1];
     if (command == "-help" || command == "-h") { // for show manual
 
-      std::cout << "\t\t\tuse \033[1;31madd\033[0m to add work "
-                   "(topic,date,detail) optino[\033[1;31m-i\033[0m to insert "
-                   "by index]]]\n"
-                << "\t\t\tuse \033[1;31mdel\033[0m to remove work by Index "
-                   "option[\033[1;31m-a\033[0m "
-                   "for remove all work all]\n"
-                << "\t";
+      std::cout
+          << "\t\t\tuse \033[1;31madd\033[0m to add work "
+             "(topic,date,detail) optino[\033[1;31m-i\033[0m to insert "
+             "by index]]]\n"
+          << "\t\t\tuse \033[1;31mdel\033[0m to remove work by Index "
+             "option[\033[1;31m-a\033[0m "
+             "for remove all work all]\n"
+          << "\t\t\tuse \033[1;31mshow\033[0m to show list of  work\n"
+          << "\t\t\tuse \033[1;31mhis\033[0m to show history of deleted work\n";
 
     } else if (command == "add") { // Add mode defualt push back
       // Add (insert mode)
@@ -76,6 +77,10 @@ int main(int argc, char *argv[]) {
         }
       }
       list.remove_work(del);
+      list.show_list();
+    } else if (command == "his") {
+      list.show_history();
+    } else if (command == "show") {
       list.show_list();
     } else {
       std::cout << "you can use -help or -h for show manual\n";
