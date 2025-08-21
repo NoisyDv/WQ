@@ -21,7 +21,6 @@
   CMakeFiles/WQApp.dir/src/work_list.cpp.o
 
 CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
-  /home/Tonnam/WQ/include/history.h \
   /home/Tonnam/WQ/include/work_list.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -490,6 +489,10 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/include/c++/15.1.1/vector:
 
+/usr/include/c++/15.1.1/bits/ostream.tcc:
+
+/usr/include/c++/15.1.1/ext/type_traits.h:
+
 /usr/include/c++/15.1.1/bits/cpp_type_traits.h:
 
 /usr/include/c++/15.1.1/bits/charconv.h:
@@ -596,14 +599,6 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/include/asm-generic/errno.h:
 
-/usr/include/c++/15.1.1/bits/codecvt.h:
-
-/usr/include/bits/timex.h:
-
-/usr/include/c++/15.1.1/limits:
-
-/usr/lib/libm.so:
-
 /usr/include/bits/time64.h:
 
 /usr/include/bits/stdlib-float.h:
@@ -611,8 +606,6 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 /home/Tonnam/WQ/include/work_list.h:
 
 /usr/include/bits/libc-header-start.h:
-
-/usr/include/bits/thread-shared-types.h:
 
 /usr/lib/libmvec.so.1:
 
@@ -632,18 +625,6 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o: /home/Tonnam/WQ/src/work_list.cpp \
 
 /usr/include/stdc-predef.h:
 
-/usr/include/c++/15.1.1/bits/istream.tcc:
-
-/usr/include/c++/15.1.1/bits/functexcept.h:
-
-CMakeFiles/WQApp.dir/src/main.cpp.o:
-
-/usr/include/c++/15.1.1/bits/postypes.h:
-
-/usr/include/bits/types.h:
-
-/usr/include/c++/15.1.1/locale:
-
 /usr/lib/crti.o:
 
 /usr/include/bits/typesizes.h:
@@ -659,8 +640,6 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 /usr/lib/libgcc_s.so:
 
 /usr/include/c++/15.1.1/bits/exception_ptr.h:
-
-/home/Tonnam/WQ/include/history.h:
 
 /usr/include/linux/errno.h:
 
@@ -680,6 +659,20 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 
 /usr/include/c++/15.1.1/bits/move.h:
 
+/usr/include/c++/15.1.1/bits/istream.tcc:
+
+/usr/include/c++/15.1.1/bits/functexcept.h:
+
+CMakeFiles/WQApp.dir/src/main.cpp.o:
+
+/usr/include/c++/15.1.1/bits/postypes.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/c++/15.1.1/locale:
+
+/usr/include/bits/thread-shared-types.h:
+
 /usr/lib/crtn.o:
 
 /usr/lib/libc.so.6:
@@ -689,6 +682,12 @@ CMakeFiles/WQApp.dir/src/main.cpp.o:
 /usr/include/c++/15.1.1/bits/locale_facets.h:
 
 /usr/include/c++/15.1.1/bits/streambuf.tcc:
+
+/usr/include/c++/15.1.1/bits/codecvt.h:
+
+/usr/include/bits/timex.h:
+
+/usr/include/c++/15.1.1/limits:
 
 /usr/include/bits/locale.h:
 
@@ -735,6 +734,8 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o:
 /usr/include/bits/long-double.h:
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
+
+/usr/lib/libm.so:
 
 /usr/include/c++/15.1.1/bits/stl_function.h:
 
@@ -785,10 +786,6 @@ CMakeFiles/WQApp.dir/src/work_list.cpp.o:
 /usr/include/c++/15.1.1/bits/stl_vector.h:
 
 /usr/include/c++/15.1.1/cwctype:
-
-/usr/include/c++/15.1.1/bits/ostream.tcc:
-
-/usr/include/c++/15.1.1/ext/type_traits.h:
 
 /usr/include/c++/15.1.1/iostream:
 

@@ -1,6 +1,6 @@
 CMakeFiles/WQApp.dir/src/main.cpp.o: /home/Tonnam/WQ/src/main.cpp \
- /usr/include/stdc-predef.h /home/Tonnam/WQ/include/history.h \
- /home/Tonnam/WQ/include/work_list.h /usr/include/c++/15.1.1/stack \
+ /usr/include/stdc-predef.h /home/Tonnam/WQ/include/work_list.h \
+ /usr/include/c++/15.1.1/stack \
  /usr/include/c++/15.1.1/bits/requires_hosted.h \
  /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/15.1.1/x86_64-pc-linux-gnu/bits/os_defines.h \

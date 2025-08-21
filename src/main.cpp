@@ -15,15 +15,17 @@ int main(int argc, char *argv[]) {
     command = argv[1];
     if (command == "-help" || command == "-h") { // for show manual
 
-      std::cout
-          << "\t\t\tuse \033[1;31madd\033[0m to add work "
-             "(topic,date,detail) optino[\033[1;31m-i\033[0m to insert "
-             "by index]]]\n"
-          << "\t\t\tuse \033[1;31mdel\033[0m to remove work by Index "
-             "option[\033[1;31m-a\033[0m "
-             "for remove all work all]\n"
-          << "\t\t\tuse \033[1;31mshow\033[0m to show list of  work\n"
-          << "\t\t\tuse \033[1;31mhis\033[0m to show history of deleted work\n";
+      std::cout << "\t\t\tuse \033[1;31madd\033[0m to add work "
+                   "(topic,date,detail) option[\033[1;31m-i\033[0m to insert "
+                   "by index]]]\n"
+                << "\t\t\tuse \033[1;31mdel\033[0m to remove work by Index "
+                   "option[\033[1;31m-a\033[0m "
+                   "for remove all work all]\n"
+                << "\t\t\tuse \033[1;31mshow\033[0m to show list of  work\n"
+                << "\t\t\tuse \033[1;31mhis\033[0m to show history of deleted "
+                   "work option[\033[1;31m-c\033[0m to clear history]\n "
+                << "\t\t\tuse \033[1;31mundo\033[0m ot undo action\n"
+                << "\t\t\tuse \033[1;31mredo\033[0m ot redo action\n";
 
     } else if (command == "add") { // Add mode defualt push back
       // Add (insert mode)
@@ -51,10 +53,10 @@ int main(int argc, char *argv[]) {
     } else if (command == "del") { // delete mode (by index)
       // delete all work in data
       if (flags == "-a") {
-        char sure;
+        char sure1;
         std::cout << "Do you want to remove all work (y/n):";
-        std::cin >> sure;
-        if (sure == 'y') {
+        std::cin >> sure1;
+        if (sure1 == 'y') {
           list.remove_all();
           list.show_list();
           return 0;
@@ -78,8 +80,25 @@ int main(int argc, char *argv[]) {
       list.remove_work(del);
       list.show_list();
     } else if (command == "his") {
+
+      if (flags == "-c") {
+        char sure2;
+        std::cout << "Do you want to remove all history (y/n):";
+        std::cin >> sure2;
+        if (sure2 == 'y') {
+          list.clear_history();
+          list.show_history();
+        }
+      }
+
       list.show_history();
     } else if (command == "show") {
+      list.show_list();
+    } else if (command == "undo") {
+      list.undo_work();
+      list.show_list();
+    } else if (command == "redo") {
+      list.redo_work();
       list.show_list();
     } else {
       std::cout << "you can use -help or -h for show manual\n";
