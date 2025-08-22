@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/WQApp.dir/link.d CMakeFiles/WQApp.dir/src/main.cpp.o CMakeFiles/WQApp.dir/src/work_list.cpp.o -o /home/Tonnam/WQ/out/WQApp
