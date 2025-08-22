@@ -145,7 +145,6 @@ void WorkList::load_from_file() {
 
 // for add work to array
 void WorkList::add_work() {
-  load_from_file();
   undo_list.push(work_list);
   Work work;
 
@@ -166,7 +165,6 @@ void WorkList::add_work() {
 // for insert work by index
 void WorkList::insert_work(int index) {
 
-  load_from_file();
   undo_list.push(work_list);
   Work work;
 
@@ -191,7 +189,6 @@ void WorkList::insert_work(int index) {
 
 // for show list of all work
 void WorkList::show_list() {
-  load_from_file();
 
   std::cout << "\t\t\t" << "\033[1;34m" << std::left << std::setw(10) << "Index"
             << std::setw(40) << "Topic" << std::setw(25) << "Date"
@@ -207,7 +204,6 @@ void WorkList::show_list() {
 
 // for show list of history work that have deleted
 void WorkList::show_history() {
-  load_from_file();
 
   std::cout << "\t\t\t" << std::left << "\033[1;31m" << std::setw(40) << "Topic"
             << std::setw(25) << "Date" << std::setw(100) << "Detail"
@@ -226,7 +222,6 @@ void WorkList::show_history() {
 void WorkList ::remove_work(int del) {
   if (del < 0 || del > work_list.size() - 1)
     return;
-  load_from_file();
   undo_list.push(work_list);
   history_list.push(work_list[del]);
   for (int i = 0; i < work_list.size(); i++) {
@@ -243,7 +238,6 @@ void WorkList ::remove_work(int del) {
 
 // for remove all wore
 void WorkList::remove_all() {
-  load_from_file();
   undo_list.push(work_list);
   for (int i = 0; i < work_list.size(); i++) {
     history_list.push(work_list[i]);
@@ -254,7 +248,6 @@ void WorkList::remove_all() {
 // Tonnam Phuangwilai
 //  for remove all history data
 void WorkList::clear_history() {
-  load_from_file();
   undo_list.push(work_list);
   while (!history_list.empty()) {
     history_list.pop();
@@ -265,7 +258,6 @@ void WorkList::clear_history() {
 
 // for undo action back to previos work_list
 void WorkList::undo_work() {
-  load_from_file();
   if (undo_list.empty()) {
     std::cout << "\033[1;31mundo stack is empty\033[0m\n";
     return;
@@ -279,7 +271,6 @@ void WorkList::undo_work() {
 
 // for redo action
 void WorkList::redo_work() {
-  load_from_file();
   if (redo_list.empty()) {
     std::cout << "\033[1;31mredo  stack is empty\033[0m\n";
     return;

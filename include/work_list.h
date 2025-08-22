@@ -16,7 +16,7 @@ public:
   std::stack<Work> history_list;
   std::stack<std::vector<Work>> undo_list;
   std::stack<std::vector<Work>> redo_list;
-  WorkList() {}
+  WorkList() { load_from_file(); }
   void save_to_file();
   void load_from_file();
   void add_work();
