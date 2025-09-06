@@ -2,4 +2,9 @@
 /build
 #all file in out
 /out
+
 .cache/
+
+#readme
+README.md
+
