@@ -164,7 +164,9 @@ void WorkList::add_work() {
 
 // for insert work by index
 void WorkList::insert_work(int index) {
-
+  if (index < 0 || index > work_list.size() - 1) {
+    return;
+  }
   undo_list.push(work_list);
   Work work;
 
@@ -245,7 +247,6 @@ void WorkList::remove_all() {
   work_list.clear();
   save_to_file();
 }
-// Tonnam Phuangwilai
 //  for remove all history data
 void WorkList::clear_history() {
   undo_list.push(work_list);

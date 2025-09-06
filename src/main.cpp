@@ -1,12 +1,18 @@
+#include "main_window.h"
+#include "table.h"
 #include "work_list.h"
+#include <FL/Fl.H>
+#include <FL/Fl_Table.H>
 #include <iostream>
 #include <limits>
 #include <string>
-
 int main(int argc, char *argv[]) {
   std::string command;
   std::string flags;
   WorkList list = WorkList();
+  Window win = Window(1500, 1000);
+  MyTable tab = MyTable(10, 10, 1000, 1000, list);
+  win.create_window();
 
   if (argc > 2) {
     flags = argv[2]; // for difine second argument
@@ -17,7 +23,7 @@ int main(int argc, char *argv[]) {
 
       std::cout << "\t\t\tuse \033[1;31madd\033[0m to add work "
                    "(topic,date,detail) option[\033[1;31m-i\033[0m to insert "
-                   "by index]]]\n"
+                   "by index]\n"
                 << "\t\t\tuse \033[1;31mdel\033[0m to remove work by Index "
                    "option[\033[1;31m-a\033[0m "
                    "for remove all work all]\n"
@@ -41,13 +47,13 @@ int main(int argc, char *argv[]) {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
           }
         }
-        list.insert_work(index);
+        tab.insert_row(index);
         list.show_list();
 
         return 0;
       }
 
-      list.add_work();
+      tab.add_row();
       list.show_list();
 
     } else if (command == "del") { // delete mode (by index)
@@ -57,7 +63,7 @@ int main(int argc, char *argv[]) {
         std::cout << "Do you want to remove all work (y/n):";
         std::cin >> sure1;
         if (sure1 == 'y') {
-          list.remove_all();
+          tab.del_all_row();
           list.show_list();
           return 0;
         } else {
@@ -77,7 +83,7 @@ int main(int argc, char *argv[]) {
           std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
       }
-      list.remove_work(del);
+      tab.del_row(del);
       list.show_list();
     } else if (command == "his") {
 
@@ -88,6 +94,7 @@ int main(int argc, char *argv[]) {
         if (sure2 == 'y') {
           list.clear_history();
           list.show_history();
+          return 0;
         }
       }
 
@@ -95,13 +102,14 @@ int main(int argc, char *argv[]) {
     } else if (command == "show") {
       list.show_list();
     } else if (command == "undo") {
-      list.undo_work();
+      tab.undo_row();
       list.show_list();
     } else if (command == "redo") {
-      list.redo_work();
+      tab.redo_row();
       list.show_list();
     } else {
       std::cout << "you can use -help or -h for show manual\n";
     }
   }
+  return Fl::run();
 }

@@ -12,6 +12,9 @@ file(GLOB SOURCES "src/*.cpp")
 
 add_executable(WQApp ${SOURCES})
 
+find_package(FLTK REQUIRED)
+include_directories(${FLTK_INCLUDE_DIR})
+target_link_libraries(WQApp ${FLTK_LIBRARIES})
 
 set_target_properties(WQApp PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/../out
