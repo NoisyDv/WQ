@@ -2,3 +2,4 @@
 /build
 #all file in out
 /out
+.cache/
