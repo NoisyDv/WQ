@@ -1,0 +1,30 @@
+  :root{
+    --glass: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.14);
+    --text: #e0e7ff;
+    --muted:#9aa3c7;
+    --accent:#6366f1;
+    --danger:#ef4444;
+    --ok:#22c55e;
+  }
+  body{margin:0;font-family:"Segoe UI",sans-serif;color:var(--text);
+       background:linear-gradient(135deg,#0f172a,#111827);}
+  header{text-align:center;padding:16px;background:rgba(0,0,0,.4)}
+  header h1{margin:0;color:#a5b4fc;text-shadow:0 0 12px #6366f1}
+  .card{background:var(--glass);border:1px solid var(--border);
+        border-radius:12px;padding:16px;margin:12px 0}
+  input,textarea,select{width:100%;margin:4px 0;padding:8px;
+        border:1px solid var(--border);border-radius:6px;
+        background:rgba(255,255,255,.05);color:var(--text)}
+  button{margin:4px;padding:8px 14px;border:none;border-radius:8px;
+        cursor:pointer;font-weight:600;color:white;
+        background:linear-gradient(135deg,var(--accent),#4338ca)}
+  button:hover{opacity:.85}
+  table{width:100%;border-collapse:collapse;margin-top:12px}
+  th,td{padding:8px;border-bottom:1px solid var(--border)}
+  th{background:rgba(255,255,255,.05);color:#c7d2fe}
+  tr:hover{background:rgba(255,255,255,.06)}
+  .done td{color:#9ca3af;text-decoration:line-through}
+  .toast{position:fixed;right:20px;bottom:20px;background:#0f172a;
+        padding:12px;border-radius:8px;display:none}
+  .toast.show{display:block}
