@@ -1,8 +1,10 @@
 
 /* ===== TOAST ===== */
-function toast(msg){const el=document.getElementById("toast");
+function toast(msg){
+  const el=document.getElementById("toast");
   el.textContent=msg;el.classList.add("show");
-  setTimeout(()=>el.classList.remove("show"),2000);}
+  setTimeout(()=>el.classList.remove("show"),2000);
+}
 
 /* ===== HELPER ===== */
 function formatLocalDate(d){
@@ -23,6 +25,7 @@ function doRegister(){
   const users=getUsers(); if(users[u]) return toast("User exists");
   users[u]={pass:p}; setUsers(users); toast("Register success");
 }
+
 function doLogin(){
   const u=authUser.value.trim(), p=authPass.value;
   const users=getUsers();
@@ -30,6 +33,7 @@ function doLogin(){
   if(!users[u]||users[u].pass!==p) return toast("Invalid login");
   localStorage.setItem("currentUser",u); enterApp(u);
 }
+
 function logout(){
   localStorage.removeItem("currentUser");
   auth.style.display="block"; app.style.display="none"; admin.style.display="none";
@@ -183,7 +187,7 @@ function snoozeReminder(){
   toast("Snoozed for 5 minutes");
 }
 
-/* ===== ADMIN ===== */
+/* ============================================= ADMIN ZONE=============================================== */
 let adminUndoStack=[], adminRedoStack=[];
 function enterAdmin(){auth.style.display="none";app.style.display="none";admin.style.display="block";renderAdminUsers();}
 function renderAdminUsers(){
@@ -251,3 +255,8 @@ function enterApp(u){
 
 /* Auto-login */
 const last=currentKey(); if(last){if(last==="DayBuddy") enterAdmin(); else enterApp(last);}
+
+// Enable live search for Task Manager
+if (typeof inSearch !== 'undefined') {
+  inSearch.oninput = renderTasks;
+}
