@@ -4,90 +4,190 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>DayBuddy</title>
- <link rel="stylesheet" href="style.css">
+<style>
+  :root{
+    --glass: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.14);
+    --text: #e0e7ff;
+    --muted:#9aa3c7;
+    --accent:#6366f1;
+    --danger:#ef4444;
+    --ok:#22c55e;
+    --bg1:#0f172a; --bg2:#111827;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,Roboto,Arial;color:var(--text);
+       background:linear-gradient(135deg,var(--bg1),var(--bg2));}
+  header{text-align:center;padding:16px;background:rgba(0,0,0,.35)}
+  header h1{margin:0;color:#a5b4fc;text-shadow:0 0 12px #6366f1}
+  main{max-width:1100px;margin:auto;padding:16px}
+  .card{background:var(--glass);border:1px solid var(--border);
+        border-radius:12px;padding:16px;margin:12px 0; backdrop-filter: blur(6px)}
+  input,textarea,select{width:100%;margin:4px 0;padding:10px 12px;
+        border:1px solid var(--border);border-radius:8px;
+        background:rgba(255,255,255,.05);color:var(--text)}
+  textarea{resize:vertical;min-height:40px}
+  button{margin:4px;padding:10px 14px;border:none;border-radius:10px;
+        cursor:pointer;font-weight:700;color:white;
+        background:linear-gradient(135deg,var(--accent),#4338ca);
+        transition:.2s transform}
+  button:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+  table{width:100%;border-collapse:collapse;margin-top:12px}
+  th,td{padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:rgba(255,255,255,.05);color:#c7d2fe;position:sticky;top:0}
+  tr:hover{background:rgba(255,255,255,.06)}
+  .done td{color:#9ca3af;text-decoration:line-through}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .grow{flex:1}
+  .toast{position:fixed;right:20px;bottom:20px;background:#0b1020;
+        padding:12px 14px;border:1px solid var(--border);border-radius:10px;display:none}
+  .toast.show{display:block}
+  /* Calendar */
+  #calendarGrid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .cal-head{font-weight:700;text-align:center;color:#93c5fd}
+  .day-cell{min-height:88px;border:1px solid var(--border);border-radius:10px;padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+  .day-num{font-weight:800}
+  .count{font-size:12px;color:var(--muted)}
+  .today{outline:2px solid var(--accent); box-shadow:0 0 0 3px rgba(99,102,241,.25) inset}
+  .muted{color:var(--muted)}
+  .badge{display:inline-block;font-size:11px;padding:2px 8px;border:1px solid var(--border);border-radius:999px}
+  .section-title{margin:0 0 8px}
+</style>
 </head>
 <body>
 <header><h1>DayBuddy</h1></header>
 
-<main style="max-width:1000px;margin:auto;padding:16px">
+<main>
 
   <!-- AUTH -->
   <section id="auth" class="card">
-    <h2>Login / Register</h2>
-    <label>Username</label>
-    <input id="authUser">
-    <label>Password</label>
-    <input id="authPass" type="password">
-    <label>Confirm Password (only for register)</label>
-    <input id="authPass2" type="password">
-    <button onclick="doRegister()">Register</button>
-    <button onclick="doLogin()">Login</button>
+    <h2 class="section-title">Login / Register</h2>
+    <div class="row">
+      <div class="grow">
+        <label>Username</label>
+        <input id="authUser" autocomplete="username">
+      </div>
+      <div class="grow">
+        <label>Password</label>
+        <input id="authPass" type="password" autocomplete="current-password">
+      </div>
+      <div class="grow">
+        <label>Confirm Password (register)</label>
+        <input id="authPass2" type="password" autocomplete="new-password">
+      </div>
+    </div>
+    <div class="row">
+      <button onclick="doRegister()">Register</button>
+      <button class="btn-ghost" onclick="doLogin()">Login</button>
+      <span class="muted">Admin: <b>DayBuddy</b> / <b>Admin</b></span>
+    </div>
   </section>
 
   <!-- APP -->
   <section id="app" style="display:none">
     <div class="card">
       <div id="welcome"></div>
-      <button onclick="logout()">Logout</button>
+      <button class="btn-ghost" onclick="logout()">Logout</button>
     </div>
 
+    <!-- TASKS -->
     <div class="card">
-      <h2>Task Manager</h2>
-      <input id="inTitle" placeholder="Title">
+      <h2 class="section-title">Task Manager</h2>
+      <div class="row">
+        <input id="inTitle" class="grow" placeholder="Title">
+        <input id="inDue" type="date" style="max-width:200px">
+        <select id="inPriority" style="max-width:160px">
+          <option>High</option><option>Medium</option><option selected>Low</option>
+        </select>
+      </div>
       <textarea id="inDetail" placeholder="Detail"></textarea>
-      <select id="inPriority">
-        <option>High</option><option>Medium</option><option selected>Low</option>
-      </select>
-      <input id="inDue" type="date">
-      <button onclick="addTask()">Add Task</button>
-      <button onclick="undoTask()">Undo</button>
-      <button onclick="redoTask()">Redo</button>
-      <input id="inSearch" placeholder="Search...">
+      <div class="row">
+        <button onclick="addTask()">Add Task</button>
+        <input id="inIndex" type="number" min="0" step="1" placeholder="Index" style="max-width:120px">
+        <button onclick="addTaskAtIndex()">Add at Index</button>
+        <button onclick="undoTask()">Undo</button>
+        <button onclick="redoTask()">Redo</button>
+        <button onclick="deleteAllTasks()">Delete All</button>
+        <input id="inSearch" class="grow" placeholder="Search title or detail..." oninput="renderTasks()">
+      </div>
+
       <table>
-        <thead><tr><th>#</th><th>Title</th><th>Detail</th><th>Priority</th><th>Due</th><th>Status</th><th>Actions</th></tr></thead>
+        <thead><tr>
+          <th style="width:64px">#</th><th>Title</th><th>Detail</th>
+          <th style="width:110px">Priority</th><th style="width:130px">Due</th>
+          <th style="width:90px">Status</th><th style="width:180px">Actions</th>
+        </tr></thead>
         <tbody id="tbody"></tbody>
       </table>
-      <button onclick="deleteAllTasks()">Delete All Tasks</button>
     </div>
 
+    <!-- CALENDAR -->
     <div class="card" id="calendar">
-      <h2>Calendar</h2>
-      <div id="monthTitle"></div>
-      <div style="margin:10px 0">
+      <h2 class="section-title">Calendar</h2>
+      <div class="row">
+        <div id="monthTitle" class="grow"></div>
+        <button onclick="goToday()">Today</button>
         <button onclick="prevMonth()">Prev</button>
         <button onclick="nextMonth()">Next</button>
-        <button onclick="renderTasks()">Show All Tasks</button>
+        <button class="btn-ghost" onclick="renderTasks()">Show All Tasks</button>
       </div>
-      <div id="calendarGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px"></div>
+      <div id="calendarGrid"></div>
+      <div class="muted" style="margin-top:8px">Click a date to filter tasks. “Today” is highlighted.</div>
     </div>
 
+    <!-- EXPENSES -->
     <div class="card">
-      <h2>Expense Tracker</h2>
-      <input id="exDate" type="date">
-      <select id="exType"><option value="income">Income</option><option value="expense">Expense</option></select>
-      <input id="exTitle" placeholder="Title">
-      <input id="exAmount" type="number" step="0.01">
-      <button onclick="addExpense()">Add</button>
-      <input id="exSearch" placeholder="Search...">
+      <h2 class="section-title">Expense Tracker</h2>
+      <div class="row">
+        <input id="exDate" type="date" style="max-width:180px">
+        <select id="exType" style="max-width:160px"><option value="income">Income</option><option value="expense">Expense</option></select>
+        <input id="exTitle" class="grow" placeholder="Title">
+        <input id="exAmount" type="number" step="0.01" placeholder="Amount" style="max-width:180px">
+      </div>
+      <div class="row">
+        <button onclick="addExpense()">Add</button>
+        <button onclick="expUndo()">Undo</button>
+        <button onclick="expRedo()">Redo</button>
+        <button onclick="deleteAllExpenses()">Delete All</button>
+        <input id="exSearch" class="grow" placeholder="Search expense..." oninput="renderExpenses()">
+      </div>
+
       <table>
-        <thead><tr><th>#</th><th>Date</th><th>Type</th><th>Title</th><th>Amount</th><th>Actions</th></tr></thead>
+        <thead><tr><th style="width:64px">#</th><th style="width:120px">Date</th><th style="width:100px">Type</th><th>Title</th><th style="width:140px">Amount</th><th style="width:180px">Actions</th></tr></thead>
         <tbody id="exTbody"></tbody>
       </table>
-      <button onclick="deleteAllExpenses()">Delete All Expenses</button>
+
+      <!-- summaries -->
+      <div class="row" style="margin-top:10px;align-items:center">
+        <div class="grow">
+          <label class="muted">Summary anchor date</label>
+          <input id="sumDate" type="date" style="max-width:200px">
+        </div>
+        <div>
+          <button onclick="showDaySummary()">Day</button>
+          <button onclick="showWeekSummary()">Week</button>
+          <button onclick="showMonthSummary()">Month</button>
+        </div>
+      </div>
+      <div id="summaryBox" class="card" style="margin-top:10px"></div>
       <div id="exSummary" style="margin-top:10px;font-weight:bold"></div>
     </div>
 
+    <!-- REMINDER -->
     <div class="card">
-      <h2>Reminder Alarm</h2>
-      <input id="remValue" type="number" placeholder="Enter value">
-      <select id="remUnit">
-        <option value="sec">Seconds</option>
-        <option value="min">Minutes</option>
-        <option value="hour">Hours</option>
-      </select>
-      <button onclick="setReminder()">Set Reminder</button>
-      <span id="ringBadge" style="display:none;color:var(--danger);font-weight:bold">Ringing!</span>
-      <div>
+      <h2 class="section-title">Reminder Alarm</h2>
+      <div class="row">
+        <input id="remValue" type="number" placeholder="Enter value" style="max-width:160px">
+        <select id="remUnit" style="max-width:160px">
+          <option value="sec">Seconds</option>
+          <option value="min">Minutes</option>
+          <option value="hour">Hours</option>
+        </select>
+        <button onclick="setReminder()">Set Reminder</button>
+        <span id="ringBadge" class="badge" style="display:none;color:var(--danger)">Ringing</span>
+      </div>
+      <div class="row">
         <button onclick="stopReminder()">Stop</button>
         <button onclick="snoozeReminder()">Snooze 5 min</button>
       </div>
@@ -97,22 +197,41 @@
 
   <!-- ADMIN -->
   <section id="admin" class="card" style="display:none">
-    <h2>Admin Dashboard</h2>
-    <div style="margin-bottom:8px">
+    <h2 class="section-title">Admin Dashboard</h2>
+    <div class="row">
       <button onclick="adminUndo()">Admin Undo</button>
       <button onclick="adminRedo()">Admin Redo</button>
+      <button class="btn-ghost" onclick="logout()">Logout</button>
     </div>
     <table>
-      <thead><tr><th>Username</th><th>Actions</th></tr></thead>
+      <thead><tr><th>User</th><th>Actions</th></tr></thead>
       <tbody id="adminUsers"></tbody>
     </table>
-    <div id="adminViewBox" style="margin-top:20px"></div>
-    <button onclick="logout()">Logout</button>
+    <div id="adminViewBox" style="margin-top:16px"></div>
   </section>
 </main>
 
 <div class="toast" id="toast"></div>
 
-<script src="script.js"></script>
-</body>
-</html>
+<script>
+/* ==========================
+   Toast
+========================== */
+function toast(msg){
+  const el=document.getElementById("toast");
+  el.textContent=msg; el.classList.add("show");
+  clearTimeout(toast._t);
+  toast._t=setTimeout(()=>el.classList.remove("show"),2000);
+}
+
+/* ==========================
+   Utils
+========================== */
+function formatLocalDate(d){
+  const pad=n=>String(n).padStart(2,"0");
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+}
+function startOfWeek(d){ const x=new Date(d); const day=(x.getDay()+6)%7; x.setDate(x.getDate()-day); x.setHours(0,0,0,0); return x; } // Monday
+function endOfWeek(d){ const s=startOfWeek(d); const e=new Date(s); e.setDate(e.getDate()+6); return e; }
+function startOfMonth(d){ return new Date(d.getFullYear(), d.getMonth(), 1); }
+function endOfMonth(d){ return new Date(d.getFullYear(), d.getMonth()+1, 0); }
