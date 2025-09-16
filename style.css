@@ -1,4 +1,4 @@
-  :root{
+:root{
     --glass: rgba(255,255,255,0.06);
     --border: rgba(255,255,255,0.14);
     --text: #e0e7ff;
@@ -6,25 +6,43 @@
     --accent:#6366f1;
     --danger:#ef4444;
     --ok:#22c55e;
+    --bg1:#0f172a; --bg2:#111827;
   }
-  body{margin:0;font-family:"Segoe UI",sans-serif;color:var(--text);
-       background:linear-gradient(135deg,#0f172a,#111827);}
-  header{text-align:center;padding:16px;background:rgba(0,0,0,.4)}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,Roboto,Arial;color:var(--text);
+       background:linear-gradient(135deg,var(--bg1),var(--bg2));}
+  header{text-align:center;padding:16px;background:rgba(0,0,0,.35)}
   header h1{margin:0;color:#a5b4fc;text-shadow:0 0 12px #6366f1}
+  main{max-width:1100px;margin:auto;padding:16px}
   .card{background:var(--glass);border:1px solid var(--border);
-        border-radius:12px;padding:16px;margin:12px 0}
-  input,textarea,select{width:100%;margin:4px 0;padding:8px;
-        border:1px solid var(--border);border-radius:6px;
+        border-radius:12px;padding:16px;margin:12px 0; backdrop-filter: blur(6px)}
+  input,textarea,select{width:100%;margin:4px 0;padding:10px 12px;
+        border:1px solid var(--border);border-radius:8px;
         background:rgba(255,255,255,.05);color:var(--text)}
-  button{margin:4px;padding:8px 14px;border:none;border-radius:8px;
-        cursor:pointer;font-weight:600;color:white;
-        background:linear-gradient(135deg,var(--accent),#4338ca)}
-  button:hover{opacity:.85}
+  textarea{resize:vertical;min-height:40px}
+  button{margin:4px;padding:10px 14px;border:none;border-radius:10px;
+        cursor:pointer;font-weight:700;color:white;
+        background:linear-gradient(135deg,var(--accent),#4338ca);
+        transition:.2s transform}
+  button:hover{transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
   table{width:100%;border-collapse:collapse;margin-top:12px}
-  th,td{padding:8px;border-bottom:1px solid var(--border)}
-  th{background:rgba(255,255,255,.05);color:#c7d2fe}
+  th,td{padding:10px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:rgba(255,255,255,.05);color:#c7d2fe;position:sticky;top:0}
   tr:hover{background:rgba(255,255,255,.06)}
   .done td{color:#9ca3af;text-decoration:line-through}
-  .toast{position:fixed;right:20px;bottom:20px;background:#0f172a;
-        padding:12px;border-radius:8px;display:none}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .grow{flex:1}
+  .toast{position:fixed;right:20px;bottom:20px;background:#0b1020;
+        padding:12px 14px;border:1px solid var(--border);border-radius:10px;display:none}
   .toast.show{display:block}
+  /* Calendar */
+  #calendarGrid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .cal-head{font-weight:700;text-align:center;color:#93c5fd}
+  .day-cell{min-height:88px;border:1px solid var(--border);border-radius:10px;padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+  .day-num{font-weight:800}
+  .count{font-size:12px;color:var(--muted)}
+  .today{outline:2px solid var(--accent); box-shadow:0 0 0 3px rgba(99,102,241,.25) inset}
+  .muted{color:var(--muted)}
+  .badge{display:inline-block;font-size:11px;padding:2px 8px;border:1px solid var(--border);border-radius:999px}
+  .section-title{margin:0 0 8px}
