@@ -10,7 +10,7 @@ function startOfWeek(d){
     const day=(x.getDay()+6)%7;
     x.setDate(x.getDate()-day);
     x.setHours(0,0,0,0); return x;
-} // Monday
+} 
 
 function endOfWeek(d){
     const s=startOfWeek(d);
